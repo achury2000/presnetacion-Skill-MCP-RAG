@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skills, MCP y RAG — guía visual en 3D</title>
+<meta name="description" content="Presentación interactiva en 3D: qué son y para qué sirven las Skills, el MCP y el RAG.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="world"></canvas>
+<div id="shade"></div>
+<div id="loader"><div class="ld"><i></i><i></i><i></i></div><p>Cargando el mundo 3D…</p></div>
+
+<header id="hud">
+  <div class="brand"><b>Skills</b><i></i><b>MCP</b><i></i><b>RAG</b></div>
+  <nav id="sections"></nav>
+  <div class="hudr"><button id="b-notes" title="Notas (N)">N</button><button id="b-ov" title="Vista general (O)">▦</button><button id="b-fs" title="Pantalla completa (F)">⛶</button></div>
+</header>
+
+<main id="ui">
+
+<!-- 0 · PORTADA -->
+<section class="slide ui-L" data-title="Portada" data-sec="0"
+ data-notes="Bienvenida. Idea central: un modelo de IA solo es un cerebro; Skills, MCP y RAG le dan manual, manos y memoria. Avanza con las flechas; la cámara viaja de una estación a otra.">
+  <div class="panel w44 plain">
+    <div class="kicker rv">GUÍA VISUAL · INTELIGENCIA ARTIFICIAL</div>
+    <h1 class="rv">Skills,<br><span class="blue">MCP</span> y <span class="lime">RAG</span></h1>
+    <p class="lead rv">Tres ideas que convierten a una IA en un asistente que <b>trabaja a tu manera</b>, <b>actúa</b> en tus herramientas y <b>conoce tus datos</b>.</p>
+    <div class="chips rv"><span>Qué es cada uno</span><span>Para qué sirve</span><span>Cómo se combinan</span><span class="hot">Reto final</span></div>
+    <p class="hint rv mono">→ avanzar · ← volver · O vista general · N notas · F pantalla completa</p>
+  </div>
+</section>
+
+<!-- 1 · EL PROBLEMA -->
+<section class="slide ui-L" data-title="El problema" data-sec="0"
+ data-notes="Un modelo de lenguaje sabe mucho, pero tiene tres límites prácticos. Cada herramienta de la presentación resuelve uno. Los tres anillos con signo de interrogación son esos huecos.">
+  <div class="panel w44">
+    <div class="kicker rv">EL PROBLEMA</div>
+    <h2 class="rv">Una IA, sola, tiene <span class="lime">tres límites</span></h2>
+    <div class="gap3">
+      <div class="row rv"><span class="ico">📚</span><div><b>No conoce tus datos</b><p>Tus documentos internos, tus precios de hoy, tu catálogo.</p></div><em>RAG</em></div>
+      <div class="row rv"><span class="ico">🖐️</span><div><b>No puede actuar</b><p>Crear un ticket, leer tu calendario, enviar un mensaje.</p></div><em>MCP</em></div>
+      <div class="row rv"><span class="ico">📋</span><div><b>No sabe cómo trabajas</b><p>Tu guía de marca, tus pasos, tu tono de voz.</p></div><em>Skills</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · MAPA -->
+<section class="slide ui-B" data-title="Las tres piezas" data-sec="0"
+ data-notes="Analogía del empleado nuevo: Skills es su manual de procedimientos, MCP sus llaves y herramientas, RAG la biblioteca de la empresa. Los tres iconos 3D están sobre la mesa.">
+  <div class="cards3">
+    <div class="card rv"><span class="tag">SKILLS</span><h3>El cómo</h3><p>Carpetas con instrucciones que la IA carga cuando la tarea las necesita.</p></div>
+    <div class="card rv blue"><span class="tag">MCP</span><h3>Las manos</h3><p>Un estándar abierto para conectar la IA con herramientas y datos.</p></div>
+    <div class="card rv"><span class="tag">RAG</span><h3>La memoria</h3><p>Buscar en tus documentos antes de responder, y contestar con eso.</p></div>
+  </div>
+  <p class="foot rv">Como un empleado nuevo: <b>Skills</b> = su manual de procedimientos · <b>MCP</b> = sus llaves y herramientas · <b>RAG</b> = la biblioteca de la empresa.</p>
+</section>
+
+<!-- 3 · SKILLS: QUÉ ES -->
+<section class="slide ui-L" data-title="Skills · qué es" data-sec="1"
+ data-notes="Una skill es una carpeta. Lo esencial es SKILL.md. La IA solo ve el nombre y la descripción al inicio, y carga el resto si la tarea encaja. Es un formato abierto (agentskills.io).">
+  <div class="panel w44">
+    <div class="kicker rv lime">01 · SKILLS</div>
+    <h2 class="rv">Un manual que la IA lee <span class="lime">cuando lo necesita</span></h2>
+    <p class="rv">Una skill es una <b>carpeta</b> con un archivo <code>SKILL.md</code> (instrucciones en Markdown) y, si hace falta, scripts, documentos de referencia y plantillas.</p>
+    <ul class="ticks">
+      <li class="rv"><b>Reutilizable:</b> la escribes una vez y sirve siempre.</li>
+      <li class="rv"><b>Ligera:</b> la IA solo carga lo que la tarea necesita.</li>
+      <li class="rv"><b>Portable:</b> es una carpeta; se comparte como cualquier archivo.</li>
+    </ul>
+    <div class="chips rv"><span>Formato abierto</span><span>agentskills.io</span></div>
+  </div>
+</section>
+
+<!-- 4 · SKILLS: CAPAS -->
+<section class="slide ui-R" data-title="Skills · tres niveles" data-sec="1"
+ data-notes="Divulgación progresiva: nivel 1 metadatos (~100 tokens por skill), nivel 2 el cuerpo de SKILL.md cuando se activa (idealmente menos de 5000 tokens) y nivel 3 recursos solo si hacen falta. Pulsa los botones o Reproducir.">
+  <div class="panel w40">
+    <div class="kicker rv lime">SKILLS · DIVULGACIÓN PROGRESIVA</div>
+    <h2 class="rv">Tres niveles de lectura</h2>
+    <div class="seg rv" id="sk-seg"><button data-l="1" class="on">1 · Metadatos</button><button data-l="2">2 · Instrucciones</button><button data-l="3">3 · Recursos</button></div>
+    <div class="box rv" id="sk-text"></div>
+    <div class="row2 rv"><button class="btn" id="sk-play">▶ Reproducir</button><span class="dim sm">Mira las tarjetas 3D: se iluminan por nivel.</span></div>
+  </div>
+</section>
+
+<!-- 5 · SKILLS: ANATOMÍA -->
+<section class="slide ui-L" data-title="Skills · SKILL.md" data-sec="1"
+ data-notes="Anatomía de SKILL.md según la especificación: frontmatter YAML con name (máx. 64, minúsculas y guiones, igual al nombre de la carpeta) y description (máx. 1024; qué hace y cuándo usarla). El cuerpo es Markdown libre.">
+  <div class="panel w50">
+    <div class="kicker rv lime">SKILLS · ANATOMÍA DE SKILL.md</div>
+    <h2 class="rv">Dos campos y un cuerpo libre</h2>
+    <pre class="code rv" id="sk-code"></pre>
+    <div class="seg rv" id="sk-parts"><button data-k="name" class="on">name</button><button data-k="desc">description</button><button data-k="body">cuerpo</button><button data-k="refs">archivos</button></div>
+    <div class="box rv" id="sk-part-text"></div>
+  </div>
+</section>
+
+<!-- 6 · SKILLS: PARA QUÉ -->
+<section class="slide ui-B" data-title="Skills · para qué sirven" data-sec="1"
+ data-notes="Un prompt se escribe cada vez; una skill se escribe una vez. Casos típicos: documentos con formato, guía de marca, flujos repetibles, conocimiento experto. Varias herramientas de agentes ya leen este formato.">
+  <h2 class="rv ctr">¿Para qué sirven las <span class="lime">Skills</span>?</h2>
+  <div class="cards4">
+    <div class="card rv"><span class="ico">📄</span><h3>Documentos con formato</h3><p>Crear Word, Excel o PowerPoint siguiendo tu plantilla.</p></div>
+    <div class="card rv"><span class="ico">🎨</span><h3>Tu marca y tu tono</h3><p>Colores, estilo y forma de escribir siempre iguales.</p></div>
+    <div class="card rv"><span class="ico">🔁</span><h3>Flujos repetibles</h3><p>Reportes, revisiones de código o auditorías paso a paso.</p></div>
+    <div class="card rv"><span class="ico">🧠</span><h3>Experiencia empaquetada</h3><p>El método de un experto, listo para que la IA lo siga.</p></div>
+  </div>
+  <p class="foot rv"><b>Prompt vs skill:</b> el prompt lo escribes cada vez; la skill se escribe una vez y se reutiliza.</p>
+</section>
+
+<!-- 7 · MCP: QUÉ ES -->
+<section class="slide ui-L" data-title="MCP · qué es" data-sec="2"
+ data-notes="MCP = Model Context Protocol. Presentado por Anthropic en noviembre de 2024. En diciembre de 2025 se donó a la Agentic AI Foundation, bajo la Linux Foundation (Anthropic, Block y OpenAI como cofundadores). Anthropic reportó más de 10.000 servidores públicos activos y más de 97 millones de descargas mensuales de SDK (fuente: anuncio de Anthropic, 9 dic 2025).">
+  <div class="panel w44">
+    <div class="kicker rv blue">02 · MCP</div>
+    <h2 class="rv">El <span class="lime">«USB-C»</span> de la inteligencia artificial</h2>
+    <p class="rv"><b>Model Context Protocol</b>: un estándar abierto para que cualquier app de IA se conecte a herramientas y datos (calendarios, bases de datos, GitHub, Slack…) con el mismo lenguaje, sin hacer una integración a medida para cada par.</p>
+    <div class="stats rv"><div><b>nov 2024</b><span>lo presenta Anthropic</span></div><div><b>+10.000</b><span>servidores públicos activos*</span></div><div><b>dic 2025</b><span>pasa a la Linux Foundation</span></div></div>
+    <p class="dim sm rv">*Cifra de Anthropic al anunciar la donación (9 dic 2025). Hoy puede ser mayor.</p>
+  </div>
+</section>
+
+<!-- 8 · MCP: FLUJO -->
+<section class="slide ui-R" data-title="MCP · cómo funciona" data-sec="2"
+ data-notes="Recorre los cinco pasos con los botones. Host = la app con IA; cliente MCP = el conector dentro del host; servidor MCP = programa que expone herramientas. Los mensajes usan JSON-RPC 2.0.">
+  <div class="panel w46">
+    <div class="kicker rv blue">MCP · CÓMO FUNCIONA</div>
+    <h2 class="rv">Un pedido, paso a paso</h2>
+    <ol class="steps rv" id="mcp-steps">
+      <li data-s="1"><b>1</b><span>Tú preguntas: «¿Qué tengo mañana en el calendario?»</span></li>
+      <li data-s="2"><b>2</b><span>El <u>host</u> (la app con IA) ve que necesita una herramienta.</span></li>
+      <li data-s="3"><b>3</b><span>El <u>cliente MCP</u> le pide al <u>servidor</u> ejecutarla.</span></li>
+      <li data-s="4"><b>4</b><span>El servidor actúa sobre tu calendario real.</span></li>
+      <li data-s="5"><b>5</b><span>El resultado vuelve y la IA te contesta.</span></li>
+    </ol>
+    <pre class="code sm rv" id="mcp-code"></pre>
+    <div class="row2 rv"><button class="btn" id="mcp-play">▶ Reproducir</button><span class="dim sm">Los mensajes MCP usan JSON-RPC 2.0.</span></div>
+  </div>
+</section>
+
+<!-- 9 · MCP: CAPACIDADES Y SEGURIDAD -->
+<section class="slide ui-L" data-title="MCP · capacidades y seguridad" data-sec="2"
+ data-notes="Un servidor MCP puede ofrecer herramientas (acciones), recursos (datos de lectura) y prompts (plantillas). Seguridad: mínimo privilegio, confirmar acciones sensibles, desconfiar del contenido devuelto (inyección de prompts) y usar solo servidores de confianza.">
+  <div class="panel w50">
+    <div class="kicker rv blue">MCP · QUÉ OFRECE UN SERVIDOR</div>
+    <h2 class="rv">Qué ofrece un servidor</h2>
+    <div class="seg rv" id="mcp-tabs"><button data-k="tools" class="on">🛠️ Tools</button><button data-k="res">📄 Resources</button><button data-k="pr">💬 Prompts</button></div>
+    <div class="box rv" id="mcp-tab-text"></div>
+    <div class="warn rv"><b>🔐 Seguridad primero</b>
+      <ul><li>Da el <b>mínimo de permisos</b> y pide <b>confirmación</b> en acciones sensibles.</li><li>No confíes a ciegas en lo que devuelve una herramienta: puede traer <b>instrucciones maliciosas</b> (inyección de prompts).</li><li>Instala solo servidores de <b>fuentes confiables</b>.</li></ul></div>
+  </div>
+</section>
+
+<!-- 10 · RAG: QUÉ ES -->
+<section class="slide ui-L" data-title="RAG · qué es" data-sec="3"
+ data-notes="RAG = Retrieval-Augmented Generation. Se busca primero en tus documentos y se le entregan esos fragmentos al modelo. Reduce las respuestas inventadas (no las elimina) y permite usar información privada o reciente sin reentrenar. Alterna Sin RAG / Con RAG.">
+  <div class="panel w46">
+    <div class="kicker rv lime">03 · RAG</div>
+    <h2 class="rv">Buscar primero, <span class="lime">responder después</span></h2>
+    <p class="rv"><b>Retrieval-Augmented Generation</b>: antes de contestar, el sistema busca en <i>tus</i> documentos y le entrega al modelo los fragmentos relevantes.</p>
+    <div class="seg rv" id="rag-toggle"><button data-k="no" class="on">Sin RAG</button><button data-k="yes">Con RAG</button></div>
+    <div class="chat rv" id="rag-chat"></div>
+    <p class="dim sm rv">Empresa ficticia. RAG <b>reduce</b> las respuestas inventadas, no las elimina.</p>
+  </div>
+</section>
+
+<!-- 11 · RAG: PIPELINE -->
+<section class="slide ui-R" data-title="RAG · cómo funciona" data-sec="3"
+ data-notes="Dos fases: preparar el índice (una vez) y consultar (cada pregunta). Los embeddings son listas de números que representan el significado; textos parecidos quedan cerca. Mira los fragmentos viajando del documento a la nube de puntos.">
+  <div class="panel w42">
+    <div class="kicker rv lime">RAG · CÓMO FUNCIONA</div>
+    <h2 class="rv">Dos fases: preparar y preguntar</h2>
+    <div class="tracks rv">
+      <div><h4>① Preparar <small>(una vez)</small></h4><ol class="steps" id="rag-prep">
+        <li data-d="Se cargan PDFs, páginas web, bases de datos… lo que quieras que la IA sepa."><b>1</b><span>Cargar documentos</span></li>
+        <li data-d="Se parten en fragmentos (chunks) con sentido: un párrafo o una sección, a menudo con algo de solapamiento."><b>2</b><span>Trocear en fragmentos</span></li>
+        <li data-d="Un modelo de embeddings convierte cada fragmento en un vector: una lista de números que representa su significado."><b>3</b><span>Crear embeddings</span></li>
+        <li data-d="Los vectores se guardan en una base vectorial (o un índice) para poder buscarlos rápido."><b>4</b><span>Guardar en una base vectorial</span></li></ol></div>
+      <div><h4>② Preguntar <small>(cada vez)</small></h4><ol class="steps" id="rag-ask">
+        <li data-d="La pregunta del usuario también se convierte en un vector."><b>5</b><span>Vectorizar la pregunta</span></li>
+        <li data-d="Se buscan los fragmentos cuyos vectores están más cerca: los k más parecidos (top-k)."><b>6</b><span>Buscar los más cercanos</span></li>
+        <li data-d="Se arma el prompt: la pregunta + los fragmentos encontrados + la instrucción de responder solo con ellos."><b>7</b><span>Armar el prompt</span></li>
+        <li data-d="El modelo redacta la respuesta y cita sus fuentes; si no hay información, debe decirlo."><b>8</b><span>Responder con fuentes</span></li></ol></div>
+    </div>
+    <div class="box rv" id="rag-step-text">Pulsa un paso para ver qué ocurre.</div>
+  </div>
+</section>
+
+<!-- 12 · RAG: BÚSQUEDA INTERACTIVA -->
+<section class="slide ui-R" data-title="RAG · búsqueda en vivo" data-sec="3"
+ data-notes="Demo interactiva. Cada punto es un fragmento. La pregunta se coloca en el espacio y se encienden los 3 puntos más cercanos. Es una simplificación en 3D: los embeddings reales tienen cientos o miles de dimensiones. La cuarta pregunta no tiene respuesta en los documentos: un buen RAG lo reconoce.">
+  <div class="panel w44">
+    <div class="kicker rv lime">RAG · PRUÉBALO · DEMO SIMPLIFICADA EN 3D</div>
+    <h2 class="rv">Pruébalo en vivo</h2>
+    <div class="qbtns rv" id="rag-q"></div>
+    <div class="box rv" id="rag-res"><span class="dim">Elige una pregunta para lanzarla a la nube de fragmentos.</span></div>
+  </div>
+</section>
+
+<!-- 13 · RAG: BUENAS PRÁCTICAS -->
+<section class="slide ui-B" data-title="RAG · buenas prácticas" data-sec="3"
+ data-notes="Lo que más mejora un RAG: buen troceado, búsqueda híbrida con reranking, citar fuentes y permitir 'no sé', e índice actualizado con permisos. Contexto largo vs RAG: meter todo en el prompt sirve con pocos documentos; RAG suele escalar mejor a muchos.">
+  <h2 class="rv ctr">Lo que hace <span class="lime">bueno</span> a un RAG</h2>
+  <div class="cards4">
+    <div class="card rv"><span class="ico">✂️</span><h3>Trocear con criterio</h3><p>Fragmentos con sentido completo, no cortes al azar.</p></div>
+    <div class="card rv"><span class="ico">🔎</span><h3>Búsqueda híbrida</h3><p>Palabras clave + vectores, y re-ordenar los resultados (reranking).</p></div>
+    <div class="card rv"><span class="ico">📎</span><h3>Citar y admitir dudas</h3><p>Mostrar fuentes y poder decir «no encontré esa información».</p></div>
+    <div class="card rv"><span class="ico">🔄</span><h3>Índice al día y con permisos</h3><p>Actualizar documentos y respetar quién puede ver qué.</p></div>
+  </div>
+  <p class="foot rv"><b>¿Y el contexto largo?</b> Pegar todo en el prompt sirve con pocos documentos; RAG suele escalar mejor cuando son muchos.</p>
+</section>
+
+<!-- 14 · COMPARACIÓN -->
+<section class="slide ui-C" data-title="Comparación" data-sec="4"
+ data-notes="Resumen en una tabla. Mensaje: no compiten, se combinan.">
+  <div class="panel wide">
+    <div class="kicker rv">LOS TRES JUNTOS</div>
+    <h2 class="rv">Tres piezas distintas, un mismo asistente</h2>
+    <table class="cmp rv"><thead><tr><th></th><th class="lime">Skills</th><th class="blue">MCP</th><th class="lime">RAG</th></tr></thead><tbody>
+      <tr><th>Aporta</th><td>Procedimientos e instrucciones</td><td>Conexión a herramientas y datos en vivo</td><td>Conocimiento recuperado de tus documentos</td></tr>
+      <tr><th>Es como…</th><td>Un manual de procedimientos</td><td>Un USB-C y unas manos</td><td>Una biblioteca con bibliotecario</td></tr>
+      <tr><th>Resuelve</th><td>«No sabe cómo trabajo»</td><td>«No puede actuar ni ver otros sistemas»</td><td>«No conoce mis datos»</td></tr>
+      <tr><th>Ejemplo</th><td>Plantilla de informe con tu marca</td><td>Crear un ticket o leer tu calendario</td><td>Responder con tu manual de políticas</td></tr>
+      <tr><th>Úsalo cuando…</th><td>La tarea se repite y tiene pasos</td><td>Hay que leer o cambiar algo en otra app</td><td>La respuesta debe salir de documentos propios</td></tr>
+    </tbody></table>
+    <p class="foot rv"><b>No compiten: se combinan.</b></p>
+  </div>
+</section>
+
+<!-- 15 · CASO INTEGRADO -->
+<section class="slide ui-L" data-title="Caso: soporte al cliente" data-sec="4"
+ data-notes="Caso ficticio de soporte. Pulsa los pasos o Reproducir y mira cómo el asistente 3D se conecta a cada pieza: skill (cómo atender), RAG (qué dice la política) y MCP (crear la devolución).">
+  <div class="panel w46">
+    <div class="kicker rv">CASO · SOPORTE AL CLIENTE (FICTICIO)</div>
+    <h2 class="rv">Cómo trabajan juntos</h2>
+    <ol class="steps rv" id="combo-steps">
+      <li data-s="1"><b>1</b><span>Un cliente escribe: «Mi pedido llegó roto».</span></li>
+      <li data-s="2"><b>S</b><span><u>Skill</u>: carga la guía de atención (tono, pasos, cuándo escalar).</span></li>
+      <li data-s="3"><b>R</b><span><u>RAG</u>: busca la política de devoluciones por defectos.</span></li>
+      <li data-s="4"><b>M</b><span><u>MCP</u>: crea la devolución en el sistema de pedidos.</span></li>
+      <li data-s="5"><b>✓</b><span>Responde con los pasos y el número de caso.</span></li>
+    </ol>
+    <div class="row2 rv"><button class="btn" id="combo-play">▶ Reproducir</button><span class="dim sm">Skill = cómo · RAG = qué dice · MCP = hacerlo</span></div>
+  </div>
+</section>
+
+<!-- 16 · RETO -->
+<section class="slide ui-C" data-title="Reto" data-sec="4"
+ data-notes="Mini reto para el público: seis casos, tres respuestas posibles. Pueden votar a mano alzada y luego pulsar el botón.">
+  <div class="panel w52 ctr">
+    <div class="kicker rv">RETO · ¿SKILL, MCP O RAG?</div>
+    <h2 class="rv" id="q-title">Caso 1 de 6</h2>
+    <p class="lead rv" id="q-text"></p>
+    <div class="qchoose rv" id="q-opts"><button data-a="skill">📋 Skill</button><button data-a="mcp">🔌 MCP</button><button data-a="rag">📚 RAG</button></div>
+    <div class="box rv" id="q-fb" hidden></div>
+    <div class="row2 rv ctr"><button class="btn" id="q-next" hidden>Siguiente →</button><span class="dim" id="q-score">Puntos: 0</span></div>
+  </div>
+</section>
+
+<!-- 17 · CIERRE -->
+<section class="slide ui-L" data-title="Cierre" data-sec="4"
+ data-notes="Cierre: tres ideas y tres primeros pasos. Fuentes: especificación de Agent Skills (agentskills.io) y anuncio de Anthropic sobre la donación de MCP (9 dic 2025).">
+  <div class="panel w50">
+    <div class="kicker rv">LO QUE TE LLEVAS</div>
+    <h2 class="rv">Manual, manos y memoria</h2>
+    <div class="gap3">
+      <div class="row rv"><span class="ico">📋</span><div><b>Skills</b><p>Enseñan <u>cómo</u> trabajar.</p></div></div>
+      <div class="row rv"><span class="ico">🔌</span><div><b>MCP</b><p>Conecta la IA con herramientas y datos.</p></div></div>
+      <div class="row rv"><span class="ico">📚</span><div><b>RAG</b><p>Busca en tus documentos y responde citando fuentes.</p></div></div>
+    </div>
+    <div class="next rv"><b>Tus primeros pasos</b><span>1 · Escribe una skill sencilla (una carpeta con SKILL.md).</span><span>2 · Prueba un servidor MCP de ejemplo (archivos o calendario).</span><span>3 · Arma un RAG mínimo con 10 documentos tuyos.</span></div>
+    <p class="dim sm rv mono">Fuentes: agentskills.io (especificación) · Anthropic, anuncio de la donación de MCP (9 dic 2025)</p>
+  </div>
+</section>
+
+</main>
+
+<footer id="bar">
+  <button id="prev" aria-label="Anterior">‹</button>
+  <div id="prog"><i></i></div>
+  <button id="next" aria-label="Siguiente">›</button>
+  <span id="count" class="mono"></span>
+</footer>
+<canvas id="mini" width="340" height="240"></canvas>
+<div id="trname" class="mono"></div>
+<div id="notes" hidden><b class="mono">NOTAS DEL PRESENTADOR</b><p></p></div>
+<div id="overview" hidden></div>
+
+<script src="js/three.min.js"></script>
+<script src="js/world.js"></script>
+<script src="js/deck.js"></script>
+</body>
+</html>
